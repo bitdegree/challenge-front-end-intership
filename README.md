@@ -14,7 +14,7 @@
 
 ## Requirements
 
-* Comment box design is provided in assets folder
+* Comment box design is provided in `assets` folder
 * Use Boostrap 4
 * Use Vue.js as your framework
 
