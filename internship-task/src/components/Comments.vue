@@ -1,20 +1,20 @@
 <template>
     <div class="background">
-        <div v-if="this.test() >= 1">
+        <div v-if="this.test() > 0">
             <p class="earlierComments" @click="limit += 20">{{this.test()}} earlier comments</p>
         </div>
-        
+
         <div v-if="comments.length > 0">
-            <div v-bind:key="comment.id" v-for="comment in limitedComments">
-                    <CommentItem  v-bind:comment="comment" v-on:remove-comment="$emit('remove-comment', comment.id)" />
-            </div>
+            <transition-group name="test" enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+                <div v-bind:key="comment.id" v-for="comment in limitedComments" >
+                    <CommentItem  v-if="show" v-bind:comment="comment" v-on:remove-comment="$emit('remove-comment', comment.id)" />
+                </div>
+            </transition-group>
         </div>
 
         <div v-else>
-            <i class="fas fa-ghost"></i>
             <h3>No comments...</h3>
         </div>
-
 
     </div>
 </template>
@@ -30,16 +30,15 @@ export default {
     },
     data(){
         return{
-            limit: 4
+            limit: 4,
+            show: true
         }
     },
-
     computed: {
         limitedComments() {
             return this.limit ? this.comments.slice(0, this.limit) : this.comments  
         }
     },
-
     methods: {
         test() {
             const a = this.limitedComments.length;
@@ -47,21 +46,14 @@ export default {
             const moreComments = b - a;
 
             return moreComments;
-        }
+        }, 
     }
-
-
-    
 }
     
 </script>
 
 <style scoped>
-   @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
-
    .earlierComments{
        cursor: pointer;
    }
-    
-
 </style>

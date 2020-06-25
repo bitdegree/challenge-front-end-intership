@@ -1,9 +1,12 @@
 <template>
     <div class="commentForm">
         <form @submit="addComment">
-            <div class="commentForm-inputs"> 
+            <div class="commentForm-inputs">
+    
                 <input type="text" placeholder="Add your name" name="userName" v-model="userName" required>
+               
                 <textarea type="text" placeholder="Add a comment" name="userComment" v-model="userComment" required />
+
             </div>
             <div class="commentForm-buttons">
                 <button type="submit" class="btn btn-success">Post</button>
@@ -24,8 +27,7 @@ export default {
             userComment: ''
         }
     },
-    methods: {
-        
+    methods: { 
         addComment(e) {
             e.preventDefault();
             const timeStamp = require('time-stamp');
@@ -34,7 +36,6 @@ export default {
                 timeStamp: timeStamp('HH:mm'),
                 name: this.userName,
                 message: this.userComment,
-                avatar: "none",
                 completed: false
             };
             this.$emit('add-comment', newComment);
@@ -46,15 +47,8 @@ export default {
             this.userName = '';
             this.userComment = '';
         }
-        
-
     }
 }
-
-
-
-
-
 </script>
 
 

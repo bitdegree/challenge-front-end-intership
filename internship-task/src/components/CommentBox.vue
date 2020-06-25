@@ -1,9 +1,13 @@
 <template>
 <div>
-    <div class="commentBox">
-        <Comments v-bind:comments="commentPost" v-on:remove-comment="removeComment" />
+
+    <div>
+        <div class="commentBox">
+            <Comments v-bind:comments="commentPost" v-on:remove-comment="removeComment" />
+        </div>
+        <CommentForm v-on:add-comment="addComment" />
     </div>
-    <CommentForm v-on:add-comment="addComment" />
+
 </div>
   
 </template>
@@ -21,7 +25,7 @@ export default {
     },
     data() {
     return {
-      commentPost: [
+        commentPost: [
         {
           id: 1,
           timeStamp: "13:21",
@@ -30,7 +34,6 @@ export default {
         },
 
         {
-          
           id: 2,
           timeStamp: "15:37",
           name: "John Doe",
@@ -71,6 +74,7 @@ export default {
 </script>
 
 <style scoped>
+@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
 
 .commentBox{
     background-color: rgb(235, 235, 235);
