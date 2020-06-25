@@ -1,16 +1,17 @@
 <template>
-    <div class="commentForm">
+    <div class="comment-form">
         <form @submit="addComment">
-            <div class="commentForm-inputs">
+            <div class="comment-form-inputs">
     
                 <input type="text" placeholder="Add your name" name="userName" v-model="userName" required>
-               
                 <textarea type="text" placeholder="Add a comment" name="userComment" v-model="userComment" required />
 
             </div>
-            <div class="commentForm-buttons">
+            <div class="comment-form-buttons">
+
                 <button type="submit" class="btn btn-success">Post</button>
                 <button @click="cancelComment" type="button" class="btn btn-secondary">Cancel</button>
+                
             </div>
         </form>
 </div>
@@ -34,8 +35,8 @@ export default {
             const newComment = {
                 id: uuidv4(),
                 timeStamp: timeStamp('HH:mm'),
-                name: this.userName,
-                message: this.userComment,
+                name: this.userName.trim(),
+                message: this.userComment.trim(),
                 completed: false
             };
             this.$emit('add-comment', newComment);
@@ -81,7 +82,7 @@ input:focus::placeholder, textarea:focus::placeholder{
 input:focus, textarea:focus{
     outline: none;
 }
-.commentForm{
+.comment-form{
     background-color: rgb(250, 250, 250);
     border-radius: 0 0 10px 10px;
     padding: 20px;

@@ -1,7 +1,7 @@
 <template>
     <div class="background">
         <div v-if="this.test() > 0">
-            <p class="earlierComments" @click="limit += 20">{{this.test()}} earlier comments</p>
+            <p class="earlier-comments" @click="limit += 20">{{this.test()}} earlier comments</p>
         </div>
 
         <div v-if="comments.length > 0">
@@ -52,8 +52,10 @@ export default {
     
 </script>
 
+
 <style scoped>
-   .earlierComments{
+    @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
+   .earlier-comments{
        cursor: pointer;
    }
 </style>

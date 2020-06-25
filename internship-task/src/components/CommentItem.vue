@@ -3,10 +3,10 @@
         <div class="avatar">
             {{getFirstLetter()}}
         </div>
-        <div class="commentText" >
-            <div class="commentHeader" >
+        <div class="comment-text" >
+            <div class="comment-teader" >
                 <span class="name" >{{ comment.name }}</span>
-                <span class="timeStamp" >{{ comment.timeStamp }}</span>
+                <span class="time-stamp" >{{ comment.timeStamp }}</span>
                 <i class="fa fa-minus-square" @click="$emit('remove-comment', comment.id)"></i>
             </div>
             <p class="message" >{{ comment.message }}</p>
@@ -38,8 +38,7 @@ export default {
         padding: 5px;
         width: 100%;
     }
-
-    .commentText{
+    .comment-text{
         width: 100%;
     }
 
@@ -52,7 +51,6 @@ export default {
         color: rgb(235, 235, 235);
         text-align: center;
         font-size: 30px;
-        
     }
 
     .name{
@@ -60,7 +58,7 @@ export default {
         font-size: 18px;
     }
 
-    .timeStamp{
+    .time-stamp{
         font-size: 14px;
         color: rgb(150, 150, 150)
     }
@@ -70,14 +68,12 @@ export default {
         opacity: 0;
         color: red;
     }
-
     .comment:hover .fa-minus-square{
         opacity: 1;
         cursor: pointer;
         transition: 1s ease;
         
     }
-
     .message{
         width: 100%;
     }

@@ -74,7 +74,6 @@ export default {
 </script>
 
 <style scoped>
-@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
 
 .commentBox{
     background-color: rgb(235, 235, 235);
